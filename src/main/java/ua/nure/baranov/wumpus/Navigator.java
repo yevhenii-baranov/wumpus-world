@@ -220,12 +220,12 @@ public class Navigator extends Agent {
         return new int[]{look, action};
     }
 
-    private Room[] getOkNeighbors(AID agent, Room position) {
-        Room[] okNeighbors = getNeighborsPosition(position);
+    private Room[] getOkNeighbors(AID agent, Room roomPosition) {
+        Room[] okNeighbors = getNeighborsPosition(roomPosition);
         ArrayList<Room> okPositions = new ArrayList<>();
         for (Room position : okNeighbors) {
-            this.world.getWorldGrid().putIfAbsent(position, new RoomPrediction()); // если комнаты
-            // не существует - добавляем новую комнату на карте
+            this.world.getWorldGrid().putIfAbsent(position, new RoomPrediction());
+
             if (Boolean.TRUE.equals(this.world.getWorldGrid().get(position).getOk())
                     && !Boolean.TRUE.equals(this.world.getWorldGrid().get(position).getNoWay()
                     && !Boolean.FALSE.equals(this.world.getWorldGrid().get(position).getExist())
@@ -238,7 +238,7 @@ public class Navigator extends Agent {
             int x = rooms.get(rooms.size() - 1).getX();
             int y = rooms.get(rooms.size() - 1).getY();
             okPositions.add(new Room(x, y));
-            this.world.getWorldGrid().get(position).setNoWay(ROOM_STATUS_TRUE);
+            this.world.getWorldGrid().get(roomPosition).setNoWay(true);
         }
         return okPositions.toArray(new Room[0]);
     }

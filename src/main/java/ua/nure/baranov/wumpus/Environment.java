@@ -88,7 +88,7 @@ public class Environment extends Agent {
         description.setName(this.getAID());
         final ServiceDescription serviceDescription = new ServiceDescription();
         serviceDescription.setType("wumpus-environment");
-        serviceDescription.setName("wumpus-world-environment");
+        serviceDescription.setName("walk-through-the-cave");
         description.addServices(serviceDescription);
 
         try {

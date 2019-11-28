@@ -91,13 +91,13 @@ public class Speleologist extends Agent {
                     ACLMessage response = myAgent.receive(expectedMessageTemplate);
                     if (response != null) {
                         WumpusPercept perception = new WumpusPercept();
-                        // TODO: 11/24/2019  
                         ACLMessage navigatorRequest = new ACLMessage(ACLMessage.REQUEST);
 
                         navigatorRequest.setContent(fromPerception(perception));
 
                         String replyMarker = String.format("nav req %d", System.currentTimeMillis());
                         expectedMessageTemplate = MatchInReplyTo(replyMarker);
+                        // TODO: 11/24/2019
 
                         navigatorRequest.setConversationId(SPELEOLOGIST_NAVIGATOR_CONVERSATION_ID);
                         navigatorRequest.setReplyWith(replyMarker);

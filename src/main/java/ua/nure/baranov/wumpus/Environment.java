@@ -33,6 +33,14 @@ public class Environment extends Agent {
 
     private long currentTimeTact;
 
+    public Environment() {
+        this(4, 4, ""
+                + ". . . P "
+                + "W G P . "
+                + ". . . . "
+                + "S . P . ");
+    }
+
     public Environment(int caveXDimension, int caveYDimension) {
         if (caveXDimension < 1)
             throw new IllegalArgumentException("Cave must have x dimension >= 1");

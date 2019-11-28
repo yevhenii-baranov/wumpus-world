@@ -56,10 +56,10 @@ public class Speleologist extends Agent {
         final DFAgentDescription description = new DFAgentDescription();
         description.setName(this.getAID());
         final ServiceDescription serviceDescription = new ServiceDescription();
-        serviceDescription.setType("book-selling");
-        serviceDescription.setName("JADE-quickstart-book-seller");
+        serviceDescription.setType("wumpus-speleologist");
+        serviceDescription.setName("wumpus-world-speleologist");
         description.addServices(serviceDescription);
-        //todo update for speleologist
+
         try {
             DFService.register(this, description);
         } catch (FIPAException e) {
